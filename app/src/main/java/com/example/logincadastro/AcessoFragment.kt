@@ -1,5 +1,6 @@
 package com.example.logincadastro
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -38,6 +39,14 @@ class AcessoFragment : Fragment() {
             editText.setText(usuario!!.email.toString())
         }
 
+        button2.setOnClickListener{
+            if (
+                editText.text.toString().equals(usuario!!.email)&&
+                editText2.text.toString().equals(usuario!!.senha)
+                    )
+            startActivity(Intent(activity,HomeActivity::class.java))
+
+        }
         button.setOnClickListener{
             findNavController().navigate(R.id.cadastroFragment)
         }
